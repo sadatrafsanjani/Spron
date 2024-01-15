@@ -1,0 +1,21 @@
+{
+	"manifest_version": 3,
+	"name": "Spron",
+	"version": "1.0",
+	"description": "Spring cron expression generator",
+	"icons": {
+		"128": "icon/128.png",
+		"64": "icon/64.png",
+		"48": "icon/48.png"
+	},
+	"action": {
+		"default_icon": "icon/48.png",
+		"default_popup": "index.html"
+	},
+	"permissions": [
+		"storage",
+		"scripting",
+		"activeTab"
+	],
+	"options_page": "option.html"
+}

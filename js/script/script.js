@@ -1,9 +1,9 @@
 $(function(){
 
-    const seconds  = [];
-    const minutes  = [];
-    const hours  = [];
-    const dates  = [];
+    const seconds  = [{ name: '*',  value: '*' }];
+    const minutes  = [{ name: '*',  value: '*' }];
+    const hours  = [{ name: '*',  value: '*' }];
+    const dates  = [{ name: '*',  value: '*' }, { name: '?',  value: '?' }];
 
 
     for(let i=0; i<60; i++){
@@ -21,7 +21,10 @@ $(function(){
     }
 
     const days  =
-        [ { name: 'SUNDAY',  value: 'SUN' },
+        [
+            { name: '*',  value: '*' },
+            { name: '?',  value: '?' },
+            { name: 'SUNDAY',  value: 'SUN' },
             { name: 'MONDAY',  value: 'MON' },
             { name: 'TUESDAY', value: 'TUE' },
             { name: 'WEDNESDAY', value: 'WED' },
@@ -31,7 +34,9 @@ $(function(){
         ];
 
     const months  =
-        [ { name: 'JANUARY',  value: 'JAN' },
+        [
+            { name: '*',  value: '*' },
+            { name: 'JANUARY',  value: 'JAN' },
             { name: 'FEBRUARY',  value: 'FEB' },
             { name: 'MARCH', value: 'MAR' },
             { name: 'APRIL', value: 'APR' },
@@ -77,13 +82,8 @@ $(function(){
         dayDropdown.add( new Option(name, value))
     })
 
-    $('#day-dropdown').on("change",  function(e){
-        console.log( e.value );
-    });
 
-
-    $('#btn').click(function () {
-
+    $('#btn').on("click", function () {
 
         const sec = secondDropdown.value;
         const min = minuteDropdown.value;
@@ -94,7 +94,9 @@ $(function(){
 
         const cronExp = sec + ' ' + min + ' ' + hr + ' ' + date + ' ' + mon + ' ' + day;
 
-        cron.textContent = cronExp;
+        $("#cron").val(cronExp);
+
+        alert(cronExp);
 
     });
 });

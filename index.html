@@ -2,57 +2,65 @@
 <html lang="en-US">
     <head>
         <title>Spron</title>
-        <link href="vendor/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-        <link href="stylesheet/style.css" type="text/css" rel="stylesheet" />
-        <script src="js/lib/jquery-3.7.1.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <link href="asset/vendor/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+        <link href="asset/css/style.css" type="text/css" rel="stylesheet" />
+        <script src="asset/vendor/jquery/jquery-3.7.1.min.js"></script>
     </head>
     <body>
 
         <div class="container">
 
-            <div class="row gx-3 gy-2 align-items-center">
-                <div class="col-auto mt-3">
+            <header class="row bg-info">
+                <div class="col-md-12 align-items-center">
+                    <h2 class="h2 text-dark">Spron</h2>
+                </div>
+            </header>
+
+            <div class="row gx-3 gy-2 align-items-center mt-3">
+                <div class="col">
                     <select id="second-dropdown" class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>SECOND</option>
+                        <option selected disabled>SECOND</option>
                     </select>
                 </div>
-                <div class="col-auto mt-3">
+                <div class="col">
                     <select id="minute-dropdown" class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>MINUTE</option>
+                        <option selected disabled>MINUTE</option>
                     </select>
                 </div>
-                <div class="col-auto mt-3">
+                <div class="col">
                     <select id="hour-dropdown" class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>HOUR</option>
+                        <option selected disabled>HOUR</option>
                     </select>
                 </div>
             </div>
-            <div class="row gx-3 gy-2 align-items-center">
-                <div class="col-auto mt-3">
+            <div class="row gx-3 gy-2 align-items-center mt-3">
+                <div class="col">
                     <select id="date-dropdown" class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>DATE</option>
+                        <option selected disabled>DATE</option>
                     </select>
                 </div>
-                <div class="col-auto mt-3">
+                <div class="col">
                     <select id="month-dropdown" class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>MONTH</option>
+                        <option selected disabled>MONTH</option>
                     </select>
                 </div>
-                <div class="col-auto mt-3">
+                <div class="col">
                     <select id="day-dropdown" class="form-select form-select-sm" aria-label="Default select example">
-                        <option selected>DAY</option>
+                        <option selected disabled>DAY</option>
                     </select>
                 </div>
             </div>
 
-            <div class="row mt-3 mb-3 gx-3 gy-2">
-                <div class="col-auto"><button id="btn" class="btn btn-primary">Generate</button></div>
-                <div class="col-auto"><input type="text" class="form-control" contenteditable="false" id="cron" /></div>
+            <div class="row gx-3 gy-2 align-items-center mt-3 mb-3">
+                <div class="col-3"><button id="btn" class="btn btn-success">Generate</button></div>
+                <div class="col input-group ms-2">
+                    <input type="text" class="form-control" aria-label="expression" id="cron" disabled />
+                    <button class="btn btn-outline-secondary" type="button" id="copyBtn"><img src="icon/copy.png" width="28" height="28" /></button>
+                </div>
             </div>
         </div>
 
-
-        <script src="js/script/script.js"></script>
+        <script src="asset/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="asset/js/script.js"></script>
     </body>
 </html>

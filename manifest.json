@@ -16,6 +16,5 @@
 		"storage",
 		"scripting",
 		"activeTab"
-	],
-	"options_page": "option.html"
+	]
 }

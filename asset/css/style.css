@@ -1,0 +1,13 @@
+html {
+    width: 380px;
+    height: 235px;
+}
+
+#cron {
+    background: #fffffc;
+    border: 1px solid #0a53be;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    font-family: Monospaced, Consolas, serif;
+}

@@ -1,9 +1,11 @@
 $(function(){
 
-    const seconds  = [{ name: '*',  value: '*' }];
-    const minutes  = [{ name: '*',  value: '*' }];
-    const hours  = [{ name: '*',  value: '*' }];
-    const dates  = [{ name: '*',  value: '*' }, { name: '?',  value: '?' }];
+    $("#copyBtn").prop('disabled', true);
+
+    const seconds = [{ name: '*',  value: '*' }];
+    const minutes = [{ name: '*',  value: '*' }];
+    const hours = [{ name: '*',  value: '*' }];
+    const dates = [{ name: '*',  value: '*' }, { name: '?',  value: '?' }];
 
 
     for(let i=0; i<60; i++){
@@ -56,7 +58,7 @@ $(function(){
     const dateDropdown = document.getElementById("date-dropdown");
     const monthDropdown = document.getElementById("month-dropdown");
     const dayDropdown = document.getElementById("day-dropdown");
-    const cron = document.getElementById("cron");
+
 
     seconds.forEach(({name,value})=>   {
         secondDropdown.add( new Option(name, value))
@@ -82,7 +84,6 @@ $(function(){
         dayDropdown.add( new Option(name, value))
     })
 
-
     $('#btn').on("click", function () {
 
         const sec = secondDropdown.value;
@@ -92,11 +93,27 @@ $(function(){
         const mon = monthDropdown.value;
         const day = dayDropdown.value;
 
-        const cronExp = sec + ' ' + min + ' ' + hr + ' ' + date + ' ' + mon + ' ' + day;
+        const cronExpression = sec + ' ' + min + ' ' + hr + ' ' + date + ' ' + mon + ' ' + day;
+        document.getElementById("cron").value = cronExpression;
 
-        $("#cron").val(cronExp);
-
-        alert(cronExp);
-
+        if(cronExpression.length !== ''){
+            $("#copyBtn").prop('disabled', false);
+        }
     });
+
+    $('#copyBtn').on("click", function () {
+
+        try {
+
+            const cronExpression = document.getElementById("cron").value;
+
+            if(cronExpression !== ''){
+                navigator.clipboard.writeText(document.getElementById("cron").value);
+                console.log('Content copied to clipboard');
+            }
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
+    });
+
 });

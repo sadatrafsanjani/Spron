@@ -93,11 +93,14 @@ $(function(){
         const mon = monthDropdown.value;
         const day = dayDropdown.value;
 
-        const cronExpression = sec + ' ' + min + ' ' + hr + ' ' + date + ' ' + mon + ' ' + day;
-        document.getElementById("cron").value = cronExpression;
+        if(sec !== '' && min !== '' && hr !== '' && date !== '' && mon !== '' && day !== ''){
 
-        if(cronExpression.length !== ''){
-            $("#copyBtn").prop('disabled', false);
+            const cronExpression = sec + ' ' + min + ' ' + hr + ' ' + date + ' ' + mon + ' ' + day;
+            document.getElementById("cron").value = cronExpression;
+
+            if(cronExpression.length > 0){
+                $("#copyBtn").prop('disabled', false);
+            }
         }
     });
 
@@ -108,7 +111,7 @@ $(function(){
             const cronExpression = document.getElementById("cron").value;
 
             if(cronExpression !== ''){
-                navigator.clipboard.writeText(document.getElementById("cron").value);
+                navigator.clipboard.writeText(cronExpression);
                 console.log('Content copied to clipboard');
             }
         } catch (err) {

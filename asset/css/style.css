@@ -1,6 +1,10 @@
 html {
     width: 380px;
-    height: 235px;
+    height: 240px;
+}
+
+.title-font {
+    font-family: Verdana, serif ;
 }
 
 #cron {
